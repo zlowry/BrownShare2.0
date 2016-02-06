@@ -1,17 +1,32 @@
+Rides = new Mongo.Collection("rides");
+
 if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('counter', 0);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
+  Template.body.helpers({
+    rides: function () {
+      
+    },
   });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
+
+  Template.body.events({
+    "submit .new-ride": function (event) {
+      
+      //prevent default browser form submit
+      event.preventDefault();
+
+      // Get value from form element
+      var destination = event.target.text.value;
+
+      //console.log(destination);
+
+      // Insert a task into the collection
+      //Meteor.call("createRide", destination);
+ 
+      // Clear form
+      event.target.text.value = "";
     }
   });
 }
@@ -21,3 +36,9 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
 }
+
+Meteor.methods({
+  createRide: function (destination) {
+    console.log(destination);
+  }
+});
