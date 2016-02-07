@@ -1,32 +1,34 @@
 Rides = new Mongo.Collection("rides");
 
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
 
   Template.body.helpers({
     rides: function () {
-      
-    },
+      return Rides.find();
+    }
   });
 
 
-  Template.body.events({
-    "submit .new-ride": function (event) {
+  Template.riderequest.events({
+    'submit form': function (event) {
       
       //prevent default browser form submit
       event.preventDefault();
 
       // Get value from form element
-      var destination = event.target.text.value;
-
-      //console.log(destination);
+      var destination = event.target.destination.value;
+      var source = event.target.source.value;
 
       // Insert a task into the collection
-      //Meteor.call("createRide", destination);
+      Meteor.call("insertRide", destination, source);
  
       // Clear form
-      event.target.text.value = "";
+      event.target.destination.value = "";
+      event.target.source.value = "";
+    },
+
+    'click li': function(event) {
+      
     }
   });
 }
@@ -38,7 +40,11 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  createRide: function (destination) {
-    console.log(destination);
+  insertRide: function (destination, source) {
+    Rides.insert({
+      destination: destination,
+      source: source,
+      createdAt: new Date()
+    });
   }
 });
