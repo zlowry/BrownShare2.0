@@ -16,10 +16,10 @@
 
 <template name="riderequest">
   <form>
-  	  <input type="text" name="source" placeholder="Type your source here" /><br>
+  	  <input type="text" name="source" placeholder="Type your pick up destination" /><br>
       <input type="text" name="destination" placeholder="Type your destination here" /><br>
-      <input type="date" name="date" /><br>
-      <input type="time" name="time" /><br>
+      <input type="date" name="date" placeholder="Type the date" /><br>
+      <input type="time" name="time" placeholder="Type the time" /><br>
       <!-- <input type="number" name="timerange" /><br> -->
       <input type="submit" value="Submit">
     </form>
@@ -40,4 +40,3 @@
   		{{/each}}
   </ul>
 </template>
-
