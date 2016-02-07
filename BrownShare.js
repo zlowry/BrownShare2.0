@@ -7,7 +7,11 @@ if (Meteor.isClient) {
       return Rides.find();
     },
     selectedRide: function() {
-      return "selected"
+      var rideId = this._id;
+      var selectedRide = Session.get('selectedRide');
+      if(rideId == selectedRide){
+        return "selected"
+      }
     }
   });
 
