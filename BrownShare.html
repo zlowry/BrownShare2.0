@@ -1,5 +1,5 @@
 <head>
-   <title>BrownShare</title>
+  <title>BrownShare</title>
 </head>
 
 <body>
@@ -14,33 +14,27 @@
 
 </body>
 
-<div class ="input">
-  <template name="riderequest">
-    <form class="input-form">
-  	  <input type="text" name="source" placeholder="Type your source here" /><br>
+<template name="riderequest">
+  <form>
+  	  <input type="text" name="source" placeholder="Type your pick up destination" /><br>
       <input type="text" name="destination" placeholder="Type your destination here" /><br>
-      <input type="date" name="date" /><br>
-      <input type="time" name="time" /><br>
+      <input type="date" name="date" placeholder="Type the date" /><br>
+      <input type="time" name="time" placeholder="Type the time" /><br>
       <!-- <input type="number" name="timerange" /><br> -->
       <input type="submit" value="Submit">
     </form>
-  </template>
-</div>
+</template>
 
-<div class = "options">
-  <template name="ridedisplay">
+<template name="ridedisplay">
    <ul>
    		{{#each rides}}
   			<li class="eachride {{selectedRide}}">
-  				<div class="container">
-	  			  <div class="content">Ride from {{source}} to {{destination}} on {{date}} at {{time}}</div>
-			      <div class="contact">
-			        <button type="button" name="in-button">I'm in!</button>
-			        <button type="button" name="contact-button">Contact</button>
-			      </div>
-			    </div>
-  			</li>
+  			  <div id="content">Ride from {{source}} to {{destination}} on {{date}} at {{time}} </div>
+  			    <div id="contact">
+  			      <button type="button">I'm in!</button>
+  			      <button type="button">Contact</button>
+  			    </div>
+  			 </li>
   		{{/each}}
   </ul>
 </template>
-</div>
