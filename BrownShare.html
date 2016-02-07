@@ -28,7 +28,15 @@
 <template name="ridedisplay">
    <ul>
    		{{#each rides}}
-  			<li class="eachride {{selectedClass}}">Ride from {{source}} to {{destination}} on {{date}} at {{time}} </li>
+  			<li class="eachride {{selectedClass}}">
+  			  <div class="content">
+  			    <span>Ride from {{source}} to {{destination}} on {{date}} at {{time}} </span>
+  			    <div class="contact">
+  			      <button type="button">I'm in!</button>
+  			      <button type="button">Contact</button>
+  			    </div>
+  			  </div>
+  			 </li>
   		{{/each}}
   </ul>
 </template>
