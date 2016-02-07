@@ -43,9 +43,9 @@ if (Meteor.isClient) {
     'click .eachride': function(event) {
       var rideId = this._id;
       Session.set('selectedRide', rideId);
-      //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+      //slide down content
       $("#contact").slideToggle();
-    }
+   }
   });
 }
 
