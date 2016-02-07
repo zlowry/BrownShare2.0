@@ -48,7 +48,8 @@ if (Meteor.isClient) {
       //getting the next element
       $contact = $content.next();
       //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-      $contact.slideToggle(500, function ());
+      $contact.slideToggle(500, function () {
+      });
   });
 }
 
